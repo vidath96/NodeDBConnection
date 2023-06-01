@@ -6,15 +6,15 @@ const app = express()
 const pool = new PoolClass({
     user: 'postgres',
     host: 'localhost',
-    database: 'weatherTiler_development',
+    database: 'nodepgtest_db',
     port: 5432,
-    password: ''
+    password: '1234'
 })
 
 app.get('/',(req,res) => {
-    const query = 'SELECT * FROM table_name WHERE id > $1'
-    const dataFromInternet = 36
-    pool.query(query,[dataFromInternet],(error,dbRes) => {
+    const query = 'SELECT * FROM users'
+    // const dataFromInternet = 1 [dataFromInternet],
+    pool.query(query,(error,dbRes) => {
         // console.log(dbRes.rows)
         res.json(dbRes)
     })
